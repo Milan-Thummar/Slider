@@ -4,6 +4,7 @@ import { fetchData } from "./components/fetchData";
 import { updateSlideContent } from "./components/updateSlideContent";
 import { createTimeLines } from "./components/createTimeLines";
 import { updateTimeLines } from "./components/updateTimeLines";
+import { handleTouch } from "./components/handleTouch";
 import { Product } from "./types/types";
 
 class Slider extends HTMLElement {
@@ -62,6 +63,8 @@ class Slider extends HTMLElement {
 
     this.prevBtn.addEventListener("click", () => this.handleBtnClick("prev"));
     this.nextBtn.addEventListener("click", () => this.handleBtnClick("next"));
+
+    handleTouch(this.slides, (deltaX: number) => this.handleSwipe(deltaX));
   }
 
   private async initializeSlider(): Promise<void> {
@@ -115,6 +118,24 @@ class Slider extends HTMLElement {
     }
     direction === "next" ? this.nextSlide() : this.prevSlide();
     this.intervalId = setInterval(() => this.nextSlide(), 3000);
+  }
+
+  private handleSwipe(deltaX: number): void {
+    const swipeThreshold = 50;
+
+    if (deltaX > swipeThreshold) {
+      if (this.intervalId) {
+        clearInterval(this.intervalId);
+      }
+      this.prevSlide();
+      this.intervalId = setInterval(() => this.nextSlide(), 3000);
+    } else if (deltaX < -swipeThreshold) {
+      if (this.intervalId) {
+        clearInterval(this.intervalId);
+      }
+      this.nextSlide();
+      this.intervalId = setInterval(() => this.nextSlide(), 3000);
+    }
   }
 }
 
