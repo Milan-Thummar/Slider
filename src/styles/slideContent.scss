@@ -1,0 +1,44 @@
+@import "./variables.scss";
+@import "./mixin.scss";
+
+div {
+  h1 {
+    font-size: calc(2.5 * var(--base-rem));
+    font-weight: 500;
+    margin: 0;
+  }
+
+  p {
+    font-size: calc(1.25 * var(--base-rem));
+    font-weight: lighter;
+    color: #c9c9c9;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+  }
+
+  button {
+    font-size: calc(1 * var(--base-rem));
+    padding: calc(0.75 * var(--base-rem)) calc(1.25 * var(--base-rem));
+    border: 1px solid var(--secondary-color);
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+    background: transparent;
+    color: var(--secondary-color);
+    font-weight: 400;
+    cursor: pointer;
+    @include transition(scale, 0.5s, ease);
+    @include button-hover;
+
+    &.more-info {
+      background-color: var(--button-background);
+      border: 1px solid var(--button-background);
+
+      &::after {
+        content: "\2192";
+        font-size: calc(1 * var(--base-rem));
+        margin-left: 0.75rem;
+        font-weight: 400;
+      }
+    }
+  }
+}

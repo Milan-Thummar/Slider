@@ -1,0 +1,13 @@
+@mixin font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
+@mixin transition($property, $duration, $ease) {
+  transition: $property $duration $ease;
+}
+
+@mixin button-hover {
+  &:hover {
+    scale: 1.05;
+  }
+}

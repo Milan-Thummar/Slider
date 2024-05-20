@@ -1,4 +1,8 @@
+@import "./styles/mixin.scss";
+@import "./styles/variables.scss";
 @import "./styles/sliderSpinner.scss";
+@import "./styles/slideImage.scss";
+@import "./styles/slideContent.scss";
 
 body,
 html {
@@ -14,6 +18,23 @@ html {
   height: 100%;
   overflow: hidden;
 
+  &__slides {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+  }
+
+  &__overlay {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, black, transparent);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
   &__spinner-container {
     display: flex;
     justify-content: center;
@@ -23,5 +44,18 @@ html {
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
+  }
+
+  &__slide-content {
+    position: absolute;
+    width: 70%;
+    height: max-content;
+    top: 50%;
+    left: 5%;
+    color: var(--secondary-color);
+    text-align: left;
+    font-style: normal;
+    z-index: 2;
+    @include font-poppins;
   }
 }
