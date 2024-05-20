@@ -3,6 +3,7 @@
 @import "./styles/sliderSpinner.scss";
 @import "./styles/slideImage.scss";
 @import "./styles/slideContent.scss";
+@import "./styles/sliderControls.scss";
 
 body,
 html {
@@ -57,5 +58,17 @@ html {
     font-style: normal;
     z-index: 2;
     @include font-poppins;
+  }
+
+  &__controls {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 90%;
+    z-index: 2;
   }
 }

@@ -8,6 +8,8 @@ class Slider extends HTMLElement {
   private slides: HTMLElement;
   private slideContent: HTMLElement;
   private spinnerContainer: HTMLElement;
+  private prevBtn: HTMLButtonElement;
+  private nextBtn: HTMLButtonElement;
   private currentIndex: number;
   private intervalId?: ReturnType<typeof setInterval>;
   private isLoading: boolean;
@@ -22,6 +24,12 @@ class Slider extends HTMLElement {
         </div>
         <div class="slider__slides"></div>
         <div class="slider__slide-content"></div>
+         <div class="slider__controls">
+          <div class="slider__buttons">
+            <button class="slider__button--prev">&#10094;</button>
+            <button class="slider__button--next">&#10095;</button>
+          </div>
+        </div>
       </div>
     `;
 
@@ -34,10 +42,19 @@ class Slider extends HTMLElement {
     this.slideContent = this.querySelector(
       ".slider__slide-content"
     ) as HTMLElement;
+    this.prevBtn = this.querySelector(
+      ".slider__button--prev"
+    ) as HTMLButtonElement;
+    this.nextBtn = this.querySelector(
+      ".slider__button--next"
+    ) as HTMLButtonElement;
   }
 
   async connectedCallback() {
     await this.initializeSlider();
+
+    this.prevBtn.addEventListener("click", () => this.handleBtnClick("prev"));
+    this.nextBtn.addEventListener("click", () => this.handleBtnClick("next"));
   }
 
   private async initializeSlider(): Promise<void> {
@@ -80,6 +97,14 @@ class Slider extends HTMLElement {
     const offset = -100 * this.currentIndex;
     this.slides.style.transform = `translateX(${offset}%)`;
     updateSlideContent(this.currentIndex);
+  }
+
+  private handleBtnClick(direction: string): void {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+    direction === "next" ? this.nextSlide() : this.prevSlide();
+    this.intervalId = setInterval(() => this.nextSlide(), 3000);
   }
 }
 
