@@ -1,0 +1,27 @@
+@import "./styles/sliderSpinner.scss";
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  max-width: 100vw;
+  height: 100vh;
+}
+
+.slider {
+  position: relative;
+  max-width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &__spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+}

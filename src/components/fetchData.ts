@@ -13,7 +13,7 @@ export const fetchData = async (
 
     return { data: products, loading };
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Data fetching error:", error);
     loading = false;
     return { data: [], loading };
   }
