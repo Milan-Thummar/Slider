@@ -2,6 +2,8 @@ import "./slider.scss";
 import { createSlide } from "./components/createSlide";
 import { fetchData } from "./components/fetchData";
 import { updateSlideContent } from "./components/updateSlideContent";
+import { createTimeLines } from "./components/createTimeLines";
+import { updateTimeLines } from "./components/updateTimeLines";
 import { Product } from "./types/types";
 
 class Slider extends HTMLElement {
@@ -10,6 +12,7 @@ class Slider extends HTMLElement {
   private spinnerContainer: HTMLElement;
   private prevBtn: HTMLButtonElement;
   private nextBtn: HTMLButtonElement;
+  private timeLinesContainer: HTMLElement;
   private currentIndex: number;
   private intervalId?: ReturnType<typeof setInterval>;
   private isLoading: boolean;
@@ -25,6 +28,7 @@ class Slider extends HTMLElement {
         <div class="slider__slides"></div>
         <div class="slider__slide-content"></div>
          <div class="slider__controls">
+          <div class="slider__timelines"></div>
           <div class="slider__buttons">
             <button class="slider__button--prev">&#10094;</button>
             <button class="slider__button--next">&#10095;</button>
@@ -48,6 +52,9 @@ class Slider extends HTMLElement {
     this.nextBtn = this.querySelector(
       ".slider__button--next"
     ) as HTMLButtonElement;
+    this.timeLinesContainer = this.querySelector(
+      ".slider__timelines"
+    ) as HTMLElement;
   }
 
   async connectedCallback() {
@@ -71,7 +78,9 @@ class Slider extends HTMLElement {
           createSlide(product, this.slides, this.slideContent);
         });
 
+        createTimeLines(this.slides, this.timeLinesContainer);
         this.intervalId = setInterval(() => this.nextSlide(), 3000);
+        updateTimeLines(this.currentIndex);
         updateSlideContent(this.currentIndex);
       }
     } catch (error) {
@@ -97,6 +106,7 @@ class Slider extends HTMLElement {
     const offset = -100 * this.currentIndex;
     this.slides.style.transform = `translateX(${offset}%)`;
     updateSlideContent(this.currentIndex);
+    updateTimeLines(this.currentIndex);
   }
 
   private handleBtnClick(direction: string): void {

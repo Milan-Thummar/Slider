@@ -1,7 +1,7 @@
 @import "./variables.scss";
 
 .slider__buttons {
-  width: 100%;
+  width: 40%;
   display: flex;
   align-items: center;
   justify-content: end;
@@ -17,6 +17,27 @@
 
     &:hover {
       color: var(--secondary-color);
+    }
+  }
+}
+
+.slider__timelines {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 0.75rem;
+  width: 60%;
+
+  .slider__timeline {
+    height: 0.25rem;
+    background-color: var(--primary-color);
+    border-radius: 0.5rem;
+
+    .slider__timeline-fill {
+      height: 100%;
+      background-color: var(--secondary-color);
+      transition: width 3s linear;
+      border-radius: 0.5rem;
     }
   }
 }
