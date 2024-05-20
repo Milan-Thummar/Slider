@@ -42,3 +42,27 @@ div {
     }
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  div {
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  div {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+}

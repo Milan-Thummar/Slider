@@ -41,3 +41,51 @@
     }
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .slider__buttons {
+    width: 20%;
+
+    button {
+      display: inline-block;
+    }
+  }
+
+  .slider__timelines {
+    gap: 0.75rem;
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .slider__buttons {
+    width: 20%;
+    gap: 0.5rem;
+
+    button {
+      display: inline-block;
+    }
+  }
+
+  .slider__timelines {
+    gap: 0.5rem;
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .slider__buttons {
+    width: 0;
+
+    button {
+      display: none;
+    }
+  }
+
+  .slider__timelines {
+    justify-content: center;
+    margin: auto;
+    gap: 0.5rem;
+    width: 90%;
+  }
+}
