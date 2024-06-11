@@ -3,13 +3,13 @@
 
 div {
   h1 {
-    font-size: calc(2.5 * var(--base-rem));
+    font-size: calc(2.25 * var(--base-rem));
     font-weight: 500;
     margin: 0;
   }
 
   p {
-    font-size: calc(1.25 * var(--base-rem));
+    font-size: calc(1.1 * var(--base-rem));
     font-weight: lighter;
     color: #c9c9c9;
     margin-bottom: 1.5rem;
@@ -46,11 +46,11 @@ div {
 @media only screen and (max-width: 1024px) {
   div {
     h1 {
-      font-size: 2rem;
+      font-size: calc(2 * var(--base-rem));
     }
 
     p {
-      font-size: 1rem;
+      font-size: calc(1 * var(--base-rem));
     }
   }
 }
@@ -58,11 +58,11 @@ div {
 @media only screen and (max-width: 480px) {
   div {
     h1 {
-      font-size: 1.5rem;
+      font-size: calc(1.5 * var(--base-rem));
     }
 
     p {
-      font-size: 1rem;
+      font-size: calc(1 * var(--base-rem));
     }
   }
 }

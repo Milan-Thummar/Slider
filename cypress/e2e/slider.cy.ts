@@ -3,27 +3,29 @@
 describe("Slider Component", () => {
   const slidesContent = [
     {
-      title: "iPhone 9",
-      description: "An apple mobile which is nothing like apple",
-    },
-    {
-      title: "iPhone X",
+      title: "Essence Mascara Lash Princess",
       description:
-        "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+        "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
     },
     {
-      title: "Samsung Universe 9",
+      title: "Eyeshadow Palette with Mirror",
       description:
-        "Samsung's new variant which goes beyond Galaxy to the Universe",
+        "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
     },
     {
-      title: "OPPOF19",
-      description: "OPPO F19 is officially announced on April 2021.",
-    },
-    {
-      title: "Huawei P30",
+      title: "Powder Canister",
       description:
-        "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
+        "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+    },
+    {
+      title: "Red Lipstick",
+      description:
+        "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+    },
+    {
+      title: "Red Nail Polish",
+      description:
+        "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
     },
   ];
 

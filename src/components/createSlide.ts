@@ -5,10 +5,10 @@ export const createSlide = (
   slides: HTMLElement,
   slideContent: HTMLElement
 ) => {
-  const { thumbnail, title, description } = product;
+  const { images, title, description } = product;
 
   const img = document.createElement("img");
-  img.src = thumbnail;
+  img.src = images[0];
   img.alt = title;
   slides.appendChild(img);
 
